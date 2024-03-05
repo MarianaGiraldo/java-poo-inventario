@@ -24,10 +24,11 @@ public class Inventario {
         for (Vehiculo v : this.vehiculos) { 
             salida += "Tipo: " + v.tipo + " | Placa: " + v.placa + 
                     " | Velocidad: " + v.velocidad +  " | Pasajeros: " + v.pasajeros;
-            if (v instanceof Particular) {
-                salida += ((Particular) v).getColor();
-            } else if (v instanceof Publico) {
-                salida += ((Publico) v).getCarga();
+            switch (v) {
+                case Particular particular -> salida += particular.getColor();
+                case Publico publico -> salida += publico.getCarga();
+                default -> {
+                }
             }
         }
         return salida + "\n";
