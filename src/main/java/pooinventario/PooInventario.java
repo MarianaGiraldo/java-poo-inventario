@@ -24,11 +24,18 @@ public class PooInventario {
                 switch (option) {
                     case "1" -> {
                         String[] elements = stdin.split("&");
+                        if (elements.length != 6) {
+                            System.out.println("Las entradas no son válidas");
+                            break loop;
+                        }
                         Vehiculo vehiculo = null;
                         switch (elements[1]) {
                         case "Particular" -> vehiculo = new Particular(elements[1], elements[2], Double.valueOf(elements[3]), Integer.parseInt(elements[4]), elements[5]);
                         case "Publico" -> vehiculo = new Publico(elements[1], elements[2], Double.valueOf(elements[3]), Integer.parseInt(elements[4]), elements[5]);
-                        default -> System.out.println("Tipo de vehiculo no existe");
+                        default -> {
+                            System.out.println("Tipo de vehiculo no existe"); 
+                            break loop;
+                        }
                     }
                         inventario.addVehiculo(vehiculo);
                         break;

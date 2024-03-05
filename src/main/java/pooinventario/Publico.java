@@ -11,4 +11,8 @@ public class Publico extends Vehiculo {
         super(tipo, placa, velocidad, pasajeros);
         this.carga = carga;
     }
+
+    public String getCarga() {
+        return carga;
+    }
 }

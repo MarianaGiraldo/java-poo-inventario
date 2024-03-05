@@ -21,11 +21,16 @@ public class Inventario {
     @Override
     public String toString() {
         String salida = "Cantidad de vehiculos: " + this.getCantidadDeVehiculos() + "\n";
-        for (Vehiculo v : this.vehiculos) {
+        for (Vehiculo v : this.vehiculos) { 
             salida += "Tipo: " + v.tipo + " | Placa: " + v.placa + 
-                    " | Velocidad: " + v.velocidad +  " | Pasajeros: " + v.pasajeros + "\n";
+                    " | Velocidad: " + v.velocidad +  " | Pasajeros: " + v.pasajeros;
+            if (v instanceof Particular) {
+                salida += ((Particular) v).getColor();
+            } else if (v instanceof Publico) {
+                salida += ((Publico) v).getCarga();
+            }
         }
-        return salida;
+        return salida + "\n";
     }
 
 }

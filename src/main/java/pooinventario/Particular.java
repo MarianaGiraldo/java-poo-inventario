@@ -11,4 +11,9 @@ public class Particular extends Vehiculo {
         super(tipo, placa, velocidad, pasajeros);
         this.color = color;
     }
+
+    public String getColor() {
+        return color;
+    }
+    
 }
